@@ -9,15 +9,37 @@
 <body>
     <header>
         <h1>Movie Finder</h1>
-        <form id="search-form">
-            <input type="text" id="search-input" placeholder="Search for movies..." required>
-            <button type="submit">Search</button>
-        </form>
+        <div class="header-controls">
+            <button id="theme-toggle">🌙</button>
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Search for movies..." required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </header>
     <main>
+        <div class="controls">
+            <div class="filters">
+                <label for="year-filter">Year from:</label>
+                <input type="number" id="year-filter" placeholder="e.g., 2000" min="1900" max="2030">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select">
+                    <option value="title-asc">Title A-Z</option>
+                    <option value="title-desc">Title Z-A</option>
+                    <option value="year-asc">Year Oldest</option>
+                    <option value="year-desc">Year Newest</option>
+                </select>
+            </div>
+        </div>
         <div id="loading" class="hidden">Loading...</div>
         <div id="movie-container"></div>
         <div id="error-message" class="hidden"></div>
+        <div id="movie-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="movie-details"></div>
+            </div>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>

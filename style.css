@@ -8,16 +8,49 @@
 body {
     background-color: #0f1014;
     color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
 }
 
 header {
     padding: 2rem;
     text-align: center;
     background-color: #1a1c23;
+    transition: background-color 0.3s;
+}
+
+body.light-mode header {
+    background-color: #f0f0f0;
 }
 
 h1 {
     margin-bottom: 1rem;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #search-form {
@@ -25,7 +58,7 @@ h1 {
     justify-content: center;
     gap: 10px;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 #search-input {
@@ -52,6 +85,32 @@ main {
     margin: 0 auto;
 }
 
+.controls {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filters label {
+    font-weight: bold;
+}
+
+.filters input, .filters select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
 .hidden {
     display: none !important;
 }
@@ -73,6 +132,18 @@ main {
     background-color: #1a1c23;
     border-radius: 8px;
     overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+body.light-mode .movie-card {
+    background-color: #f9f9f9;
+    color: #000;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .movie-card img {
@@ -93,4 +164,87 @@ main {
 .movie-info p {
     color: #9ca3af;
     font-size: 0.9rem;
+}
+
+body.light-mode .movie-info p {
+    color: #666;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.favorite-btn, .view-more-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.favorite-btn {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.favorite-btn.favorited {
+    background-color: #ffd93d;
+    color: black;
+}
+
+.view-more-btn {
+    background-color: #4ecdc4;
+    color: white;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #1a1c23;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+}
+
+body.light-mode .modal-content {
+    background-color: #f9f9f9;
+    color: #000;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+#movie-details {
+    margin-top: 20px;
+}
+
+#movie-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
 }
