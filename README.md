@@ -60,3 +60,6 @@ This API provides movie data such as:
 ## Project Status
 
 Milestone 1 — Project planning and setup completed.
+Milestone 2 - API fetcing done.
+Milestone 3 - All buttons enabled and linked to API.
+Milestone 4- Deployed the project.
